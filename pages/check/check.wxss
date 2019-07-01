@@ -1,1 +1,13 @@
-/* pages/check/check.wxss */
+@import "../commen/weui.wxss";
+
+.image-section {
+  text-align: center;
+  width: 100%;
+}
+.page-section{
+  margin-bottom: 20rpx;
+}
+
+form{
+  width: 100%;
+}

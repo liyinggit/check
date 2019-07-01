@@ -5,7 +5,51 @@ Page({
    * 页面的初始数据
    */
   data: {
+      info:''
+  },
 
+
+  formSubmit: function (e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    var e = e.detail.value;
+    var id = wx.getStorageSync("2");
+    var that = this;
+    if (e.username == "" || e.telephone == "") {
+      wx.showModal({
+        title: '提示',
+        content: '请输入打卡信息',
+        success: function (res) {
+          if (res.confirm) {
+            console.log('弹框后点取消')
+          } else {
+            console.log('弹框后点取消')
+          }
+        }
+      })
+    }else{
+      wx.request({
+        url: 'http://localhost:8081/activity/saveUserInfo',
+        data: {
+          username: e.username,  //用户打卡信息 用户名称
+          telephone: e.telephone,   //用户打卡信息  用户电话
+          id: id //活动id
+        },
+        success: function (res) {
+          console.log(res.data) //打印到控制台
+          var message = res.data;
+          wx.switchTab({     //这种方式才能跳转到tabbar页面
+            url: '/pages/index/index',
+          })
+          var toastText = '用户打卡成功';
+
+          wx.showToast({
+            title: toastText,
+            icon: '',
+            duration: 2000
+          });
+        }
+      })
+    }
   },
 
   /**
@@ -17,13 +61,11 @@ Page({
     storageData = wx.getStorageSync("2");
     console.log(storageData + "333");
     wx.request({
-      url: 'http://localhost:8081/getInfoById',
+      url: 'http://localhost:8081/activity/getInfoById',
       data: {
         id: storageData
       },
       success: function (res) {
-        console.log(res.data)//打印到控制台
-
         that.setData({
           info: res.data
         })

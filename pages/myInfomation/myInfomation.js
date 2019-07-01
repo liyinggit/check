@@ -1,18 +1,40 @@
 // pages/myInfomation/myInfomation.js
+var _app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    menuitems: [
+      { text: '账号信息', url: '../userinfo/userinfo', icon: '../../image/1.jpg', tips: '' },
+      
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this
+    _app.getUserInfo(function (userinfo) {
+      console.log(userinfo)
+      console.log(getApp().globalData.userSign)
+      that.setData({
+        userinfo: userinfo,
+        userSign: getApp().globalData.userSign,
+      })
+    })
 
+  },
+
+  getUserInfo: function (e) {
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
   },
 
   /**
@@ -26,7 +48,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let that = this
+    _app.getUserInfo(function (userinfo) {
+      console.log(userinfo)
+      console.log(getApp().globalData.userSign)
+      that.setData({
+        userinfo: userinfo,
+        userSign: getApp().globalData.userSign,
+      })
+    })
+  
   },
 
   /**

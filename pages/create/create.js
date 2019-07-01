@@ -57,13 +57,11 @@ Page({
         }
       })
     }
-
     if (e.address == 0) {
       this.setData({
         address: "广州市海珠区新港中路"
       })
     }
-
 
     if (e.activityName != "") {
 
@@ -79,7 +77,7 @@ Page({
         success: function(res) {
           console.log(res.data) //打印到控制台
           var message = res.data;
-          wx.navigateTo({
+          wx.switchTab({     //这种方式才能跳转到tabbar页面
             url: '/pages/index/index',
           })
           var toastText = '活动创建成功';
@@ -88,15 +86,9 @@ Page({
             icon: '',
             duration: 2000
           });
-
-
-
         }
       })
-
-
     }
-
   },
 
 

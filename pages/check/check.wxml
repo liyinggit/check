@@ -1,2 +1,75 @@
-<!--pages/check/check.wxml-->
-<text>pages/check/check.wxml</text>
+<scroll-view>
+  <form bindsubmit="formSubmit">
+    <view class="weui-cells__title">活动信息</view>
+    <view class="weui-cells weui-cells_after-title">
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">活动名称</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input disabled="{{true}}" class="weui-input" name="activityName" value="{{info.activityName}}" />
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">活动地址</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input disabled="{{true}}" class="weui-input" name="address" value="{{info.address}}" />
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">活动日期</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input disabled="{{true}}" class="weui-input" name="date" value="{{info.date}}" />
+        </view>
+      </view>
+
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">活动时间</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input disabled="{{true}}" class="weui-input" name="time" value="{{info.time}}" />
+        </view>
+      </view>
+    </view>
+
+
+    <view class="weui-cells__title">填写打卡信息</view>
+    <view class="weui-cells weui-cells_after-title">
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">姓名</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" auto-focus name="username" placeholder="姓名" />
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">电话</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" name="telephone" placeholder="电话" />
+        </view>
+      </view>
+    </view>
+
+
+    <view class="btn-area" id="buttonContainer">
+    
+        <button type="primary" formType="submit">打卡</button>
+     
+    </view>
+
+  </form>
+</scroll-view>

@@ -29,7 +29,7 @@ Page({
     let id = e.currentTarget.dataset.id;
     var key = "2";
     var data = id;
-    // wx.setStorageSync(key, data);   //保存到本地
+    wx.setStorageSync(key, data);   //保存到本地
     wx.navigateTo({
       url: '/pages/check/check'
     });
@@ -52,8 +52,7 @@ Page({
             list: res.data,
             isEmpty: false
           })
-          console.log(that.data);
-
+          console.log(that.data.list);
         }
       }
     })
