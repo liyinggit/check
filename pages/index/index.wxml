@@ -1,13 +1,27 @@
 <!--index.wxml-->
+
+
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+
+
+  <scroll-view>
+    <view wx:if="{{!isEmpty}}">
+      <view wx:for='{{list}}' wx:key='{{list.id}}'>
+        <view class='singleTrade' hover-class='item-press' catchtap='showDetail' data-id='{{item.id}}'>
+          <image src='{{item.image}}' class='img' />
+          <view class='a'>
+            <view class='name'>活动名称：{{item.activityName}}</view>
+            <view class='name'>发起人：{{item.address}}</view>
+            <view class='price'>活动开始时间：{{item.date}} {{item.time}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{isEmpty}}">
+        <view>还没有任何活动哦，去创建一个吧！</view>
+    </view>
+  </scroll-view>
 </view>
+
+

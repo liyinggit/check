@@ -1,0 +1,18 @@
+@import "../commen/weui.wxss";
+
+.image-section {
+  text-align: center;
+  width: 100%;
+}
+.page-section{
+  margin-bottom: 20rpx;
+}
+
+.picker{
+  padding: 19rpx 26rpx;
+  background-color: #FFFFFF;
+}
+
+form{
+  width: 100%;
+}
