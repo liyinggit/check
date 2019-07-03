@@ -67,6 +67,32 @@
         </view>
       </view>
 
+      <view class="weui-cells__title">活动创建者信息</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">昵称</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" disabled='{{true}}' name="username" value="{{username}}"/>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">电话号码</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="telephone" />
+          </view>
+        </view>
+      </view>
+
+      <!-- 个人开发者没办法调用 -->
+      <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">get</button> -->
+
     </view>
 
     <view class="btn-area" id="buttonContainer">

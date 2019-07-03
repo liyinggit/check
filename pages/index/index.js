@@ -4,10 +4,6 @@ const app = getApp()
 
 Page({
   data: {
-    // motto: 'Hello World',
-    // userInfo: {},
-    // hasUserInfo: false,
-    // canIUse: wx.canIUse('button.open-type.getUserInfo')
 
     //  items: [
     //    { image: '../../image/1.jpg', id: '1', date: '2019-02-12', time: '12:01', project: '活动1'},
@@ -60,9 +56,14 @@ Page({
   },
 
   onLoad: function () {
-   this.getInfoList();
+   
   },
 
 
-
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this.getInfoList();
+  },
 })

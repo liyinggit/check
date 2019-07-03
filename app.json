@@ -4,13 +4,15 @@
     "pages/logs/logs",
     "pages/check/check",
     "pages/myInfomation/myInfomation",
-    "pages/create/create"
+    "pages/create/create",
+    "pages/calendar/calendar",
+    "pages/record/record"
   ],
   "window": {
-   "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "打卡",
-  "navigationBarBackgroundColor": "#F8F8F8",
-  "backgroundColor": "#F8F8F8"
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "打卡",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
   },
   "tabBar": {
     "color": "#7A7E83",
@@ -25,10 +27,10 @@
         "text": "活动列表"
       },
       {
-        "pagePath": "pages/create/create",
+        "pagePath": "pages/record/record",
         "iconPath": "image/icon_component.png",
         "selectedIconPath": "image/icon_component_HL.png",
-        "text": "创建活动"
+        "text": "日历打卡"
       },
       {
         "pagePath": "pages/myInfomation/myInfomation",

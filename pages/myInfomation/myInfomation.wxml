@@ -1,0 +1,65 @@
+<import src="../calendar/calendar.wxml" />
+<view class="main">
+  <view class="header">
+    <image src="{{thumb}}" class="thumb"></image>
+    <text class="nickname">{{username}}</text>
+  </view>
+  <view class="address-box">
+    <view class="address-manage">
+      <navigator url="../create/create">创建活动</navigator>
+    </view>
+    <view wx:if="{{hasAddress}}" class="address-list">
+      <view>{{address.name}}</view>
+      <view>{{address.phone}}</view>
+      <view>{{address.detail}}</view>
+    </view>
+  </view>
+  <view class="goods-tab-box">
+    <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">我创建的活动</view>
+    <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">我的打卡记录</view>
+
+    <view class="goods-content">
+      <view wx:if="{{curIndex === 0}}">
+
+        <scroll-view>
+          <view wx:if="{{!isEmpty}}">
+            <view class="newest-box">
+              <view wx:for='{{list}}' wx:key='{{list.id}}' class="newest-list">
+                <navigator url="">
+                  <image src="{{item.image}}"></image>
+                  <view class="newest-text">
+                    <text>活动名称：{{item.activityName}}</text>
+                  </view>
+                  <view class="newest-text">
+                    <text>活动地址：{{item.address}}</text>
+                  </view>
+                </navigator>
+              </view>
+            </view>
+          </view>
+
+          <view wx:if="{{isEmpty}}">
+            <view>还没有任何活动哦，去创建一个吧！</view>
+          </view>
+        </scroll-view>
+
+      </view>
+      <view wx:if="{{curIndex === 1}}">
+
+        <!-- <view wx:if="{{!ischeck}}">
+          <calendar selected="{{selected}}" bindselect="bindselect" bindgetdate="bindgetdate" />
+        </view> -->
+
+        <scroll-view>
+          <view class="check-box">
+            <view wx:for='{{userInfoList}}' wx:key='{{userInfoList.id}}' class="address-list">
+              <text>打卡时间：{{item.checkTime}}</text>
+            </view>
+          </view>
+        </scroll-view>
+
+
+      </view>
+    </view>
+  </view>
+</view>

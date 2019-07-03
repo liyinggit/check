@@ -1,4 +1,5 @@
 // pages/create/create.js
+var app = getApp() //获取app.js中的全局变量
 Page({
 
   /**
@@ -9,10 +10,33 @@ Page({
     date: '2019-09-01', //日期选择
     index: 0,
     time: '12:01', //时间选择
-    address: ""
+    address: "",
+    username: "",
+    telephone: ""
   },
 
+  //个人开发者没办法调用
+  // getPhoneNumber(e) {
+  //   console.log(e.detail.errMsg)
+  //   console.log(e.detail.iv)
+  //   console.log(e.detail.encryptedData)
 
+
+  //   wx.request({
+  //     url: 'http://localhost:8081/wx/user/phone',
+  //     data: {
+  //       sessionKey: this.globalData.session_key,
+  //       encryptedData: e.detail.encryptedData,
+  //       iv: e.detail.iv,
+  //       signature: "1",
+  //       rawData: "1"
+  //     },
+  //     success: function(res) {
+  //       console.log(res.data) //打印到控制台 
+  //     }
+  //   })
+
+  // },
 
   /**
    * 地址选择
@@ -72,12 +96,14 @@ Page({
           address: this.data.address, //活动地址
           date: e.date, //活动日期
           time: e.time, //活动时间
-          image: '../../image/1.jpg'
+          image: '../../image/1.jpg',
+          username: e.username, //创建该活动的用户的名称
+          telephone: e.telephone //创建该活动的用户的电话号码
         },
         success: function(res) {
           console.log(res.data) //打印到控制台
           var message = res.data;
-          wx.switchTab({     //这种方式才能跳转到tabbar页面
+          wx.switchTab({ //这种方式才能跳转到tabbar页面
             url: '/pages/index/index',
           })
           var toastText = '活动创建成功';
@@ -97,6 +123,9 @@ Page({
    */
   onLoad: function(options) {
 
+    this.setData({
+      username: app.globalData.userInfo.nickName
+    })
   },
 
   /**

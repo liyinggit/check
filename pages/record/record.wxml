@@ -1,0 +1,5 @@
+<!--pages/record/record.wxml-->
+<import src="../calendar/calendar.wxml" />
+
+
+<calendar selected="{{selected}}" bindselect="bindselect" bindgetdate="bindgetdate" />

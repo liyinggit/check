@@ -1,11 +1,15 @@
 // pages/check/check.js
+var util = require('../../utils/util.js');
+var app = getApp()   //获取app.js中的全局变量
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      info:''
+      info:'',
+    checkTime:util.formatTime(new Date()),
+      username: "" //用户昵称
   },
 
 
@@ -32,7 +36,8 @@ Page({
         data: {
           username: e.username,  //用户打卡信息 用户名称
           telephone: e.telephone,   //用户打卡信息  用户电话
-          id: id //活动id
+          id: id, //活动id
+          checkTime:e.checkTime   //打卡时间
         },
         success: function (res) {
           console.log(res.data) //打印到控制台
@@ -72,6 +77,10 @@ Page({
         console.log(that.data.info);
       }
     });
+
+    this.setData({
+      username: app.globalData.userInfo.nickName  
+    })
   },
 
   /**
