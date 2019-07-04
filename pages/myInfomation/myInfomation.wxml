@@ -1,8 +1,9 @@
 <import src="../calendar/calendar.wxml" />
 <view class="main">
   <view class="header">
-    <image src="{{thumb}}" class="thumb"></image>
-    <text class="nickname">{{username}}</text>
+    <!-- <image src="{{thumb}}" class="thumb"></image> -->
+    <!-- <text class="nickname">{{username}}</text> -->
+    <text>个人中心</text>
   </view>
   <view class="address-box">
     <view class="address-manage">

@@ -1,5 +1,8 @@
 // pages/create/create.js
 var app = getApp() //获取app.js中的全局变量
+
+
+
 Page({
 
   /**
@@ -12,31 +15,12 @@ Page({
     time: '12:01', //时间选择
     address: "",
     username: "",
-    telephone: ""
+    telephone: "",
+
   },
-
-  //个人开发者没办法调用
-  // getPhoneNumber(e) {
-  //   console.log(e.detail.errMsg)
-  //   console.log(e.detail.iv)
-  //   console.log(e.detail.encryptedData)
+  
 
 
-  //   wx.request({
-  //     url: 'http://localhost:8081/wx/user/phone',
-  //     data: {
-  //       sessionKey: this.globalData.session_key,
-  //       encryptedData: e.detail.encryptedData,
-  //       iv: e.detail.iv,
-  //       signature: "1",
-  //       rawData: "1"
-  //     },
-  //     success: function(res) {
-  //       console.log(res.data) //打印到控制台 
-  //     }
-  //   })
-
-  // },
 
   /**
    * 地址选择
@@ -123,10 +107,10 @@ Page({
    */
   onLoad: function(options) {
 
-    this.setData({
-      username: app.globalData.userInfo.nickName
-    })
+  
   },
+
+ 
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -116,7 +116,8 @@ Page({
       username: app.globalData.userInfo.nickName
     })
   
-   
+    // this.getMyActivity();
+    // this.getClockIn();
   },
 
   /**
@@ -130,8 +131,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.getMyActivity();
-    this.getClockIn();
+    // this.getMyActivity();
+    // this.getClockIn();
   },
 
   /**
