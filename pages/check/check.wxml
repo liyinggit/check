@@ -23,20 +23,20 @@
 
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
-          <view class="weui-label">活动日期</view>
+          <view class="weui-label">活动开始时间</view>
         </view>
         <view class="weui-cell__bd">
-          <input disabled="{{true}}" class="weui-input" name="date" value="{{info.date}}" />
+          <input disabled="{{true}}" class="weui-input" name="startTime" value="{{info.startTime}}" />
         </view>
       </view>
 
 
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
-          <view class="weui-label">活动时间</view>
+          <view class="weui-label">活动结束时间</view>
         </view>
         <view class="weui-cell__bd">
-          <input disabled="{{true}}" class="weui-input" name="time" value="{{info.time}}" />
+          <input disabled="{{true}}" class="weui-input" name="endTime" value="{{info.endTime}}" />
         </view>
       </view>
     </view>
@@ -45,24 +45,25 @@
     <view class="weui-cells__title">填写打卡信息</view>
     <view class="weui-cells weui-cells_after-title">
 
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">姓名</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" name="username" placeholder="姓名" />
+        </view>
+      </view>
 
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
           <view class="weui-label">电话</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" name="telephone" placeholder="电话" />
+          <input class="weui-input" name="telephone" type='number' placeholder="电话" maxlength="11" />
         </view>
       </view>
 
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">用户昵称</view>
-        </view>
-        <view class="weui-cell__bd">
-          <input class="weui-input" name="username" value='{{username}}' />
-        </view>
-      </view>
+
 
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">

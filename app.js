@@ -1,6 +1,7 @@
 //app.js
 App({
   onLaunch: function() {
+    var that = this;
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -20,34 +21,36 @@ App({
           },
           success: function(res) {
             console.log(res.data) //打印到控制台 
-            // this.globalData.openId = res.data.openid;
+            that.globalData.openId = res.data.openid;
             // this.globalData.session_key = res.data.session_key;
 
             //获取用户信息
-            wx.getSetting({
-              success:info => {
-                if (info.authSetting['scope.userInfo']) {
-                  wx.getUserInfo({
-                    success: info => {
-                      console.log("res.sessionKey:" + res.data.sessionKey);
-                        wx.request({
-                          url: 'http://localhost:8081/wx/user/info',
-                          data:{
-                            sessionKey: res.data.sessionKey,
-                            signature: info.signature,
-                            rawData: info.rawData,
-                            encryptedData: info.encryptedData,
-                            iv: info.iv
-                          },
-                          success:function(res){
-                            console.log("用户信息："+JSON.stringify(res));
-                          }
-                        })
-                    }
-                  })
-                }
-              }
-            })
+            // wx.getSetting({
+            //   success:info => {
+            //     if (info.authSetting['scope.userInfo']) {
+            //       wx.getUserInfo({
+            //         success: info => {
+            //           console.log("res.sessionKey:" + res.data.sessionKey);
+            //             wx.request({
+            //               url: 'http://localhost:8081/wx/user/info',
+            //               data:{
+            //                 sessionKey: res.data.sessionKey,
+            //                 signature: info.signature,
+            //                 rawData: info.rawData,
+            //                 encryptedData: info.encryptedData,
+            //                 iv: info.iv
+            //               },
+            //               success:function(res){
+            //                 console.log("用户信息："+JSON.stringify(res));
+            //               }
+            //             })
+            //         }
+            //       })
+            //     }
+            //   }
+            // })
+
+
           }
         });
 
@@ -85,6 +88,6 @@ App({
   globalData: {
     userInfo: null,
     openId: null,
-    session_key: null
+  
   }
 })

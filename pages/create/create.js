@@ -1,7 +1,7 @@
 // pages/create/create.js
 var app = getApp() //获取app.js中的全局变量
 
-
+var date = new Date();
 
 Page({
 
@@ -10,41 +10,62 @@ Page({
    */
   data: {
     array: ['广州市海珠区新港中路', '地址二', '地址三', '地址四'], //地址选择
-    date: '2019-09-01', //日期选择
-    index: 0,
-    time: '12:01', //时间选择
-    address: "",
+    startDate: '2019-09-01', //活动开始日期
+    endDate: '2019-09-01', //活动结束日期
+
+    startTime: '12:01', //活动开始时间
+    endTime: '13:00', //活动结束时间
+    address: ["四川省", "广元市", "苍溪县"], //省市区
+    addressDetail: "", //详细地址
     username: "",
     telephone: "",
+    description: "", //活动描述
+
 
   },
-  
-
-
 
   /**
    * 地址选择
    */
-  bindPickerChange: function(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+  bindRegionChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value);
+    var info = e.detail.value;
     this.setData({
-      index: e.detail.value
+      address: e.detail.value
+    });
+
+    console.log(info[0] + info[1] + info[2]);
+  },
+  /**
+   * 开始日期选择
+   */
+  bindStartDateChange: function(e) {
+    this.setData({
+      startDate: e.detail.value
+    });
+  },
+  /**
+   * 开始时间选择
+   */
+  bindStartTimeChange: function(e) {
+    this.setData({
+      startTime: e.detail.value
     })
   },
   /**
-   * 日期选择
+   * 结束日期选择
    */
-  bindDateChange: function(e) {
+  bindEndDateChange: function(e) {
     this.setData({
-      date: e.detail.value
-    })
+      endDate: e.detail.value
+    });
   },
   /**
-   * 时间选择
+   * 结束时间选择
    */
-  bindTimeChange: function(e) {
+  bindEndTimeChange: function(e) {
     this.setData({
-      time: e.detail.value
+      endTime: e.detail.value
     })
   },
 
@@ -65,11 +86,7 @@ Page({
         }
       })
     }
-    if (e.address == 0) {
-      this.setData({
-        address: "广州市海珠区新港中路"
-      })
-    }
+
 
     if (e.activityName != "") {
 
@@ -77,25 +94,29 @@ Page({
         url: 'http://localhost:8081/activity/saveInfo',
         data: {
           activityName: e.activityName, //活动名称
-          address: this.data.address, //活动地址
-          date: e.date, //活动日期
-          time: e.time, //活动时间
+          address: e.address[0] + e.address[1] + e.address[2] + e.addressDetail, //活动地址
+          description: e.description, //活动描述
+          startTime: e.startDate + ' ' + e.startTime, //活动开始时间
+          endTime: e.endDate + ' ' + e.endTime, //活动结束时间
           image: '../../image/1.jpg',
-          username: e.username, //创建该活动的用户的名称
-          telephone: e.telephone //创建该活动的用户的电话号码
+          openId: app.globalData.openId
         },
         success: function(res) {
-          console.log(res.data) //打印到控制台
+          console.log("返回结果：" + JSON.stringify(res.data)) //打印到控制台
           var message = res.data;
-          wx.switchTab({ //这种方式才能跳转到tabbar页面
-            url: '/pages/index/index',
-          })
-          var toastText = '活动创建成功';
-          wx.showToast({
-            title: toastText,
-            icon: '',
-            duration: 2000
-          });
+          if (message.info === "success") {
+
+            wx.switchTab({ //这种方式才能跳转到tabbar页面
+              url: '/pages/index/index',
+            })
+            var toastText = '活动创建成功';
+            wx.showToast({
+              title: toastText,
+              icon: '',
+              duration: 2000
+            });
+          }
+
         }
       })
     }
@@ -107,10 +128,10 @@ Page({
    */
   onLoad: function(options) {
 
-  
+
   },
 
- 
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

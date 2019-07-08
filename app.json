@@ -6,7 +6,8 @@
     "pages/myInfomation/myInfomation",
     "pages/create/create",
     "pages/calendar/calendar",
-    "pages/record/record"
+    "pages/record/record",
+    "pages/myActivityDetail/myActivityDetail"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -25,12 +26,6 @@
         "iconPath": "image/icon_component.png",
         "selectedIconPath": "image/icon_component_HL.png",
         "text": "活动列表"
-      },
-      {
-        "pagePath": "pages/record/record",
-        "iconPath": "image/icon_component.png",
-        "selectedIconPath": "image/icon_component_HL.png",
-        "text": "日历打卡"
       },
       {
         "pagePath": "pages/myInfomation/myInfomation",

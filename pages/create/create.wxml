@@ -1,11 +1,12 @@
 <scroll-view>
-  <view class="">
+  <!-- <view class="">
     <image class="image-section" mode='scaleToFill' src='../../image/1.jpg' />
-  </view>
+  </view> -->
   <form catchsubmit="formSubmit">
+
+      <!--#####################################活动名称  -->
     <view class="weui-cells__title">活动名称</view>
     <view class="weui-cells weui-cells_after-title">
-
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
           <view class="weui-label">活动名称</view>
@@ -16,7 +17,16 @@
       </view>
     </view>
 
+      <!--#####################################活动内容  -->
+    <view class="weui-cells__title">活动内容描述</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="textarea-wrp">
+        <textarea auto-focus="true" name="description" style="height: 5em" placeholder="请输入活动内容" />
+      </view>
+    </view>
 
+
+ <!--#####################################活动地址选择 -->
     <view class="page-section">
       <view class="weui-cells__title">活动地址</view>
       <view class="weui-cells weui-cells_after-title">
@@ -25,64 +35,102 @@
             <view class="weui-label">当前选择</view>
           </view>
           <view class="weui-cell__bd">
-            <picker bindchange="bindPickerChange" name="address" value="{{index}}" range="{{array}}">
-              <view class="weui-input">{{array[index]}}</view>
+            <picker mode="region" bindchange="bindRegionChange" value="{{address}}" name="address" custom-item="{{customItem}}">
+              <view class="weui-input">
+    
+                {{address[0]}}-{{address[1]}}-{{address[2]}}
+              </view>
             </picker>
-            <!-- <view style=''>
-                    <form bindsubmit="openLocation">
-                        <button formType="submit" style="width: 86rpx;height: 86rpx;float:right">
-                        <icon><image style="width: 86rpx;height: 86rpx;" src='../images/location.png'/></icon> 
-                        </button>
-                    </form>
-                </view> -->
           </view>
         </view>
       </view>
 
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+        
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="addressDetail" auto-focus placeholder="详细地址" />
+          </view>
+        </view>
+      </view>
+
+      <!--#####################################日期  start  -->
       <view class="weui-cells__title">活动开始时间</view>
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
 
-          <!-- <view class="weui-cell__hd">
-            <view class="weui-label">当前选择</view>
-          </view> -->
-
-          <view class="weui-cell__bd">
-            <picker mode="date" value="{{date}}" name="date" start="2015-09-01" end="2020-09-01" bindchange="bindDateChange">
-              <view class="weui-input">{{date}}</view>
-            </picker>
+          <view class="weui-cell__hd">
+            <view class="weui-label">日期</view>
           </view>
 
           <view class="weui-cell__bd">
-            <picker mode="time" value="{{time}}" name="time" start="09:01" end="21:01" bindchange="bindTimeChange">
-              <view class="weui-input">{{time}}</view>
+            <picker mode="date" value="{{startDate}}" name="startDate" start="2015-09-01" end="2020-09-01" bindchange="bindStartDateChange">
+              <view class="weui-input">{{startDate}}</view>
             </picker>
           </view>
 
         </view>
       </view>
 
-      <view class="weui-cells__title">活动日期</view>
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
           <view class="weui-cell__hd">
-            <view class="weui-label">当前选择</view>
+            <view class="weui-label">时间</view>
           </view>
           <view class="weui-cell__bd">
-          
+            <view class="weui-cell__bd">
+              <picker mode="time" value="{{startTime}}" name="startTime" start="09:01" end="21:01" bindchange="bindStartTimeChange">
+                <view class="weui-input">{{startTime}}</view>
+              </picker>
+            </view>
 
           </view>
         </view>
       </view>
 
+      <view class="weui-cells__title">活动结束时间</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+
+          <view class="weui-cell__hd">
+            <view class="weui-label">日期</view>
+          </view>
+
+          <view class="weui-cell__bd">
+            <picker mode="date" value="{{endDate}}" name="endDate" start="2015-09-01" end="2020-09-01" bindchange="bindEndDateChange">
+              <view class="weui-input">{{endDate}}</view>
+            </picker>
+          </view>
+
+        </view>
+      </view>
+
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">时间</view>
+          </view>
+          <view class="weui-cell__bd">
+            <view class="weui-cell__bd">
+              <picker mode="time" value="{{endTime}}" name="endTime" start="09:01" end="21:01" bindchange="bindEndTimeChange">
+                <view class="weui-input">{{endTime}}</view>
+              </picker>
+            </view>
+
+          </view>
+        </view>
+      </view>
+      <!--#####################################日期  end  -->
+
+      <!-- 
       <view class="weui-cells__title">活动创建者信息</view>
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
           <view class="weui-cell__hd">
-            <view class="weui-label">昵称</view>
+            <view class="weui-label">姓名</view>
           </view>
           <view class="weui-cell__bd">
-            <input class="weui-input" disabled='{{true}}' name="username" value="{{username}}"/>
+            <input class="weui-input" disabled='{{true}}' name="username" value="{{username}}" />
           </view>
         </view>
       </view>
@@ -96,10 +144,9 @@
             <input class="weui-input" name="telephone" />
           </view>
         </view>
-      </view>
+      </view> -->
 
-      <!-- 个人开发者没办法调用 以及未微信认证的无法使用 -->
-      <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">get</button> -->
+
 
     </view>
 

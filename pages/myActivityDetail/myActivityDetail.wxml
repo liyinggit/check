@@ -1,0 +1,25 @@
+<view class="main">
+  <view class="goods-box">
+    <image src="{{activity.image}}" class="goods-thumb"></image>
+
+
+    <view class="goods-operation">
+      <text class="goods-operation-num">打卡人数 </text>
+      <!-- <text class="goods-operation-add" bindtap="addCount">+</text> -->
+      <text class="goods-to-cart" bindtap="addToCart"> {{num}} </text>
+    </view>
+    <view class="goods-title">活动名称：{{activity.activityName}}</view>
+    <view class="goods-price">活动内容：{{activity.description}}</view>
+    <view class="goods-stock">活动开始时间{{activity.startTime}}</view>
+    <view class="goods-stock">活动结束时间{{activity.endTime}}</view>
+
+  </view>
+  <view class="goods-tab-box">
+    <scroll-view>
+      <view class="check">打卡人员的姓名和打卡时间</view>
+      <view wx:for='{{checkInUserList}}' wx:key='{{checkInUserList.id}}' class="address-list">
+        <text>        {{item.user.userName}}-----{{item.checkTime}}</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>

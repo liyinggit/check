@@ -11,8 +11,9 @@
           <image src='{{item.image}}' class='img' />
           <view class='a'>
             <view class='name'>活动名称：{{item.activityName}}</view>
-            <view class='name'>活动地址：{{item.address}}</view>
-            <view class='price'>活动开始时间：{{item.date}} {{item.time}}</view>
+            <!-- <view class='name'>活动地址：{{item.address}}</view> -->
+            <view class='price'>活动开始时间：{{item.startTime}}</view>
+            <view class='price'>活动结束时间：{{item.endTime}}</view>
           </view>
         </view>
       </view>

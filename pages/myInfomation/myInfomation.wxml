@@ -1,8 +1,8 @@
 <import src="../calendar/calendar.wxml" />
 <view class="main">
   <view class="header">
-    <!-- <image src="{{thumb}}" class="thumb"></image> -->
-    <!-- <text class="nickname">{{username}}</text> -->
+    <image src="{{thumb}}" class="thumb"></image> 
+    <text class="nickname">{{username}}</text>
     <text>个人中心</text>
   </view>
   <view class="address-box">
@@ -25,8 +25,7 @@
         <scroll-view>
           <view wx:if="{{!isEmpty}}">
             <view class="newest-box">
-              <view wx:for='{{list}}' wx:key='{{list.id}}' class="newest-list">
-                <navigator url="">
+              <view wx:for='{{list}}' wx:key='{{list.id}}' catchtap='showDetail' class="newest-list" data-id='{{item.id}}'>
                   <image src="{{item.image}}"></image>
                   <view class="newest-text">
                     <text>活动名称：{{item.activityName}}</text>
@@ -34,7 +33,6 @@
                   <view class="newest-text">
                     <text>活动地址：{{item.address}}</text>
                   </view>
-                </navigator>
               </view>
             </view>
           </view>
@@ -47,14 +45,11 @@
       </view>
       <view wx:if="{{curIndex === 1}}">
 
-        <!-- <view wx:if="{{!ischeck}}">
-          <calendar selected="{{selected}}" bindselect="bindselect" bindgetdate="bindgetdate" />
-        </view> -->
-
         <scroll-view>
           <view class="check-box">
             <view wx:for='{{userInfoList}}' wx:key='{{userInfoList.id}}' class="address-list">
               <text>打卡时间：{{item.checkTime}}</text>
+              <text>活动名称: {{item.activity.activityName}}</text>
             </view>
           </view>
         </scroll-view>
