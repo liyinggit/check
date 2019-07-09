@@ -21,7 +21,8 @@ Page({
     storageData = wx.getStorageSync("1");
     console.log(storageData + "4444");
     wx.request({
-      url: 'http://localhost:8081/activity/getCheckInUserByActivityId',
+      // url: 'http://localhost:8081/activity/getCheckInUserByActivityId',
+      url: 'http://abc.sendroids.com/activity/getCheckInUserByActivityId',
       data: {
         id: storageData
       },
@@ -47,7 +48,8 @@ Page({
     storageData = wx.getStorageSync("1");
     console.log(storageData + "4444");
     wx.request({
-      url: 'http://localhost:8081/activity/getInfoById',
+      // url: 'http://localhost:8081/activity/getInfoById',
+      url: 'http://abc.sendroids.com/activity/getInfoById',
       data: {
         id: storageData
       },

@@ -91,7 +91,8 @@ Page({
     if (e.activityName != "") {
 
       wx.request({
-        url: 'http://localhost:8081/activity/saveInfo',
+        // url: 'http://localhost:8082/activity/saveInfo',
+        url:'http://abc.sendroids.com/activity/saveInfo',
         data: {
           activityName: e.activityName, //活动名称
           address: e.address[0] + e.address[1] + e.address[2] + e.addressDetail, //活动地址

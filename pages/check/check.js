@@ -47,7 +47,8 @@ Page({
 
     if (e.username != "" || e.telephone != "") {
       wx.request({
-        url: 'http://localhost:8081/activity/saveUserInfo',
+        // url: 'http://localhost:8082/activity/saveUserInfo',
+        url:'http://abc.sendroids.com/activity/saveUserInfo',
         data: {
           username: e.username, //用户打卡信息 用户名称
           telephone: e.telephone, //用户打卡信息  用户电话
@@ -82,7 +83,8 @@ Page({
     storageData = wx.getStorageSync("2");
     console.log(storageData + "333");
     wx.request({
-      url: 'http://localhost:8081/activity/getInfoById',
+      // url: 'http://localhost:8081/activity/getInfoById',
+      url: 'http://abc.sendroids.com/activity/getInfoById',
       data: {
         id: storageData
       },

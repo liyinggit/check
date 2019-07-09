@@ -15,7 +15,8 @@ App({
 
         //发送到后台，由后台发送请求获取openid等内容
         wx.request({
-          url: 'http://localhost:8081/wx/user/login',
+          // url: 'http://localhost:8081/wx/user/login',
+          url: 'http://abc.sendroids.com/wx/user/login',
           data: {
             code: res.code
           },

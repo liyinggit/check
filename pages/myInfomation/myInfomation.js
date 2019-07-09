@@ -57,7 +57,8 @@ Page({
     var that = this;
 
     wx.request({
-      url: 'http://localhost:8081/activity/getActivitiesByOpenId',
+      // url: 'http://localhost:8081/activity/getActivitiesByOpenId',
+      url: 'http://abc.sendroids.com/activity/getActivitiesByOpenId',
       data: {
         openId: app.globalData.openId
       },
@@ -81,7 +82,8 @@ Page({
     var that = this;
 
     wx.request({
-      url: 'http://localhost:8081/activity/getCheckInsByOpenId',
+      // url: 'http://localhost:8081/activity/getCheckInsByOpenId',
+      url: 'http://abc.sendroids.com/activity/getCheckInsByOpenId',
       data: {
         openId: app.globalData.openId
       },

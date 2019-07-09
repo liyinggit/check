@@ -36,7 +36,8 @@ Page({
     var that = this;
 
     wx.request({
-      url: 'http://localhost:8081/activity/getInfoList',
+      // url: 'http://localhost:8081/activity/getInfoList',
+      url: 'http://abc.sendroids.com/activity/getInfoList',
 
       success: function(res) {
         console.log("活动列表:"+JSON.stringify(res.data)) //打印到控制台
